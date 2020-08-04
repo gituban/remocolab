@@ -8,7 +8,7 @@ def _installPkg(cache, name):
   if pkg.is_installed:
     print(f"{name} is already installed")
   else:
-    print(f"Install {name}")
+    print(f"Installing {name} ...")
     pkg.mark_install()
 
 def _installPkgs(cache, *args):
@@ -222,7 +222,7 @@ def _setupVNC():
   apt.debfile.DebPackage("virtualgl.deb", cache).install()
   apt.debfile.DebPackage("turbovnc.deb", cache).install()
 
-  _installPkgs(cache, "lxde")
+  _installPkg(cache, "lxde")
   cache.commit()
 
   vnc_sec_conf_p = pathlib.Path("/etc/turbovncserver-security.conf")
